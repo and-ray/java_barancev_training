@@ -17,4 +17,5 @@ public class NavigationHelper extends HelperBase {
         //wd.get("http://localhost/addressbook/index.php");
         click(By.xpath("//a[text()='home']"));
     }
+
 }

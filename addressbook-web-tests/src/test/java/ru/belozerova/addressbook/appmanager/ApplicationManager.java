@@ -40,10 +40,6 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-    public void gotoGroupPage() {
-        navigationHelper.gotoGroupPage();
-    }
-
     public void gotoHomePage() {
         navigationHelper.gotoHomePage();
     }

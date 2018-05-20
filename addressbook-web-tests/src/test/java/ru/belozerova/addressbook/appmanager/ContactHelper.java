@@ -40,4 +40,12 @@ public class ContactHelper extends HelperBase {
     public void selectContact() {
         click(By.xpath("(//tr[@name='entry'])[1]//input")); //клик на чекбокс 1ого контакта
     }
+
+    public void editContact() {
+        click(By.xpath("//a/img[@title='Edit']"));
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
 }
