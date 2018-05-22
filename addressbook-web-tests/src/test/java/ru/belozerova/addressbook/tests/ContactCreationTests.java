@@ -11,7 +11,12 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation() {
         app.gotoHomePage();
         app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(new ContactData("Alfa", "Beta", "Earth", "+71234567890", "alfa@beta.com"));
+        app.getContactHelper().fillContactForm(new ContactData(
+                "Alfa",
+                "Beta",
+                "Earth",
+                "+71234567890",
+                "alfa@beta.com"));
         app.getContactHelper().submitContactCreation();
         app.getContactHelper().returnToHomePage();
     }
