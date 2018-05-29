@@ -37,8 +37,8 @@ public class ContactHelper extends HelperBase {
        wd.switchTo().window(winHandleBefore);
     }
 
-    public void selectContact() {
-        click(By.xpath("(//tr[@name='entry'])[1]//input")); //клик на чекбокс 1ого контакта
+    public void selectContact(int index) {
+        wd.findElements(By.xpath("//tr[@name='entry']//input")).get(index).click();
     }
 
     public void editContact() {

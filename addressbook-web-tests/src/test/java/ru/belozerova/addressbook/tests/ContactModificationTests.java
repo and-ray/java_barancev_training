@@ -18,6 +18,7 @@ public class ContactModificationTests extends TestBase {
                     "alfa@beta.com"));
         }
         int before = app.getGroupHelper().getGroupCount();
+        app.getContactHelper().selectContact(before - 1);
         app.getContactHelper().editContact();
         app.getContactHelper().fillContactForm(new ContactData("Alfa", "Beta", "Earth", "+71234567890", "alfa@beta.com"));
         app.getContactHelper().submitContactModification();
