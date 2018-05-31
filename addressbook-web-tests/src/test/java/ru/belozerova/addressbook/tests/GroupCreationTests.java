@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.TestBase;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -28,6 +29,17 @@ public class GroupCreationTests extends TestBase {
                 max = g.getId();
             }
         }
+//компаратор, л.4.9
+        Comparator<? super GroupData> byId = new Comparator<GroupData>() {
+            @Override
+            public int compare(GroupData o1, GroupData o2) {
+//анонимный класс для сравнения, реализует ИФС компаратора.
+                return Integer.compare(o1.getId(), o2.getId());
+            }
+        };
+
+        int max1 = after.stream().max(byId).get().getId();
+
         group.setId(max);
         before.add(group);
         Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));

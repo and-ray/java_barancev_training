@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 import ru.belozerova.addressbook.model.ContactData;
 import ru.belozerova.addressbook.TestBase;
 
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 
@@ -33,6 +34,15 @@ public class ContactCreationTests extends TestBase {
                 max = c.getId();
             }
         }
+
+        Comparator<? super ContactData> byId = new Comparator<ContactData>() {
+            @Override
+            public int compare(ContactData o1, ContactData o2) {
+                return Integer.compare(o1.getId(), o2.getId());
+
+            }
+        };
+        int max1 = after.stream().max(byId).get().getId();
         contact.setId(max);
         before.add(contact);
         Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
