@@ -59,8 +59,11 @@ public class ContactData {
                 Objects.equals(lastName, that.lastName);
     }
 
+    public void setId(int id) {   this.id = id;   }
+
     @Override
     public int hashCode() {
+
 
         return Objects.hash(id, firstName, lastName);
     }
