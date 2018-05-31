@@ -5,20 +5,20 @@ import org.testng.annotations.Test;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.TestBase;
 
+import java.util.List;
+
 public class GroupCreationTests extends TestBase {
 
     @Test
     public void testGroupCreation() {
         app.getNavigationHelper().gotoGroupPage();
-        int before = app.getGroupHelper().getGroupCount();
-        //System.out.println(before+" before");
+        List<GroupData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().initGroupCreation();
         app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "test3"));
         app.getGroupHelper().submitGroupCreation();
         app.getGroupHelper().returnToGroupPage();
-        int after = app.getGroupHelper().getGroupCount();
-        System.out.println(after+" after");
-        //Assert.assertEquals(after, before + 1);
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+        Assert.assertEquals(after.size(), before.size() + 1);
 
     }
 

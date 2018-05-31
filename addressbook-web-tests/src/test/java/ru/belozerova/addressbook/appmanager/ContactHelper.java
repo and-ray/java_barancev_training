@@ -2,7 +2,11 @@ package ru.belozerova.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import ru.belozerova.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -61,5 +65,21 @@ public class ContactHelper extends HelperBase {
 
     public int getContactCount() {
     return wd.findElements((By.xpath("//tr[@name='entry']//input"))).size();
+    }
+
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<ContactData>();
+        List <WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']//td)"));
+        int i=1;
+        for (WebElement element: elements)
+        {
+            String lastName = element.get(i).getText();
+            String firstName = element.get.getText();
+            int id = Integer.parseInt(element.findElement(By.xpath("//tr[@name='entry']//input")).getAttribute("value"));
+            ContactData contact = new ContactData(id, firstName,lastName,null,null,null);
+            contacts.add(contact);
+            i+=10;
+        }
+        return contacts;
     }
 }

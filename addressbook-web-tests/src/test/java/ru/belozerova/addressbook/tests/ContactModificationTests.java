@@ -5,6 +5,9 @@ import org.testng.annotations.Test;
 import ru.belozerova.addressbook.TestBase;
 import ru.belozerova.addressbook.model.ContactData;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class ContactModificationTests extends TestBase {
     @Test
     public void testContactModification() {
@@ -17,13 +20,18 @@ public class ContactModificationTests extends TestBase {
                     "+71234567890",
                     "alfa@beta.com"));
         }
-        int before = app.getGroupHelper().getGroupCount();
-        app.getContactHelper().selectContact(before - 1);
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectContact(before.size() - 1);
         app.getContactHelper().editContact();
-        app.getContactHelper().fillContactForm(new ContactData("Alfa", "Beta", "Earth", "+71234567890", "alfa@beta.com"));
+        ContactData contact = new ContactData(before.get(before.size() - 1).getId(),"Alfa", "Beta", "Earth", "+71234567890", "alfa@beta.com");
+        app.getContactHelper().fillContactForm(contact);
         app.getContactHelper().submitContactModification();
         app.getContactHelper().returnToHomePage();
-        int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after, before);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size());
+
+        before.remove(before.size() - 1);
+        before.add(contact);
+        Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
     }
 }
