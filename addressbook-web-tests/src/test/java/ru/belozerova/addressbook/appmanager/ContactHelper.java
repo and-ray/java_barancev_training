@@ -6,7 +6,9 @@ import org.openqa.selenium.WebElement;
 import ru.belozerova.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ContactHelper extends HelperBase {
 
@@ -44,9 +46,11 @@ public class ContactHelper extends HelperBase {
     public void selectContact(int index) {
         wd.findElements(By.xpath("//tr[@name='entry']//input")).get(index).click();
     }
+    public void selectContactById(int id) {
+        wd.findElement(By.xpath("//tr[@name='entry']//input[@id='"+id+"']")).click();
+    }
 
     public void editContact(int index) {
-        //click(By.xpath("//a/img[@title='Edit']"));
         wd.findElements(By.xpath("//a/img[@title='Edit']")).get(index).click();
     }
 
@@ -86,8 +90,24 @@ public class ContactHelper extends HelperBase {
         return contacts;
     }
 
-    public void modify(int index, ContactData contact) {
-       editContact(index);
+    public Set<ContactData> all() {
+       Set<ContactData> contacts = new HashSet<ContactData>();
+        List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : elements) {
+            List<WebElement> oneStringOfCells = element.findElements(By.cssSelector("td"));
+            String name = oneStringOfCells.get(2).getText();
+            //System.out.println("имя " + name);
+            String lastName = oneStringOfCells.get(1).getText();
+            //System.out.println("фамилия " + lastName);
+            int id = Integer.parseInt(element.findElement(By.cssSelector("input")).getAttribute("value"));
+            //System.out.println("id = "+id);
+            ContactData contact = new ContactData().withId(id).withFirstName(name).withLastName(lastName);
+            contacts.add(contact);
+        }
+        return contacts;
+    }
+    public void modify(ContactData contact) {
+       editContactById(index);
        fillContactForm(contact);
        submitContactModification();
        returnToHomePage();
@@ -95,6 +115,12 @@ public class ContactHelper extends HelperBase {
 
     public void delete(int index) {
         selectContact(index);
+        deleteSelectedContacts();
+        returnToHomePage();
+    }
+
+    public void delete(ContactData contact) {
+        selectContactById(contact.getId());
         deleteSelectedContacts();
         returnToHomePage();
     }
