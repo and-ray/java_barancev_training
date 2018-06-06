@@ -44,16 +44,12 @@ public class ContactHelper extends HelperBase {
         wd.switchTo().window(winHandleBefore);
     }
 
-    public void selectContact(int index) {
-        wd.findElements(By.xpath("//tr[@name='entry']//input")).get(index).click();
-    }
+
     public void selectContactById(int id) {
         wd.findElement(By.xpath("//tr[@name='entry']//input[@id='"+id+"']")).click();
     }
 
-    public void editContact(int index) {
-        wd.findElements(By.xpath("//a/img[@title='Edit']")).get(index).click();
-    }
+
     public void editContactById(int id) {
         wd.findElement(By.xpath("(//input[@id='"+id+"']/../following-sibling::td/a)[3]")).click();
     }
@@ -66,16 +62,7 @@ public class ContactHelper extends HelperBase {
         return isElementPresent(By.xpath("(//tr[@name='entry'])[1]//input"));
     }
 
-    public void create(ContactData contacts) {
-        initContactCreation();
-        fillContactForm(contacts);
-        submitContactCreation();
-        returnToHomePage();
-    }
-
-    public int getContactCount() {
-        return wd.findElements((By.xpath("//tr[@name='entry']//input"))).size();
-    }
+   // public int getContactCount() {        return wd.findElements((By.xpath("//tr[@name='entry']//input"))).size();    }
 
     public List<ContactData> list() {
         List<ContactData> contacts = new ArrayList<ContactData>();
@@ -93,9 +80,13 @@ public class ContactHelper extends HelperBase {
         }
         return contacts;
     }
+    private Contacts contactCache = null;
 
     public Contacts all() {
-        Contacts contacts = new Contacts();
+        if (contactCache!=null){
+            return new Contacts(contactCache);
+        }
+        contactCache = new Contacts();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
 
         for (WebElement element : elements) {
@@ -106,20 +97,31 @@ public class ContactHelper extends HelperBase {
             //System.out.println("фамилия " + lastName);
             int id = Integer.parseInt(element.findElement(By.cssSelector("input")).getAttribute("value"));
             //System.out.println("id = "+id);
-            contacts.add(new ContactData().withId(id).withFirstName(name).withLastName(lastName));
+            contactCache.add(new ContactData().withId(id).withFirstName(name).withLastName(lastName));
         }
-        return contacts;
+        return new Contacts(contactCache);
     }
+
+    public void create(ContactData contacts) {
+        initContactCreation();
+        fillContactForm(contacts);
+        submitContactCreation();
+        contactCache = null;
+        returnToHomePage();
+    }
+
     public void modify(ContactData contact) {
        editContactById(contact.getId());
        fillContactForm(contact);
        submitContactModification();
+       contactCache = null;
        returnToHomePage();
     }
 
     public void delete(ContactData contact) {
         selectContactById(contact.getId());
         deleteSelectedContacts();
+        contactCache = null;
         returnToHomePage();
     }
 }
