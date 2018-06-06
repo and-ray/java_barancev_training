@@ -21,11 +21,6 @@ public class GroupCreationTests extends TestBase {
         //сеттер, присваивает максимальное значение id объекту group
         group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt());
         before.add(group);
-
-
         Assert.assertEquals(before,after);
     }
-
-
-
 }

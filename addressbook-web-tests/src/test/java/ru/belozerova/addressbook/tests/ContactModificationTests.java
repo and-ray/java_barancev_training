@@ -22,17 +22,18 @@ public class ContactModificationTests extends TestBase {
                     .withEmail("alfa@beta.com"));
         }
     }
-    @Test (enabled = false)
+    @Test //(enabled = false)
     public void testContactModification() {
         Set<ContactData> before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
+        System.out.println("id = "+modifiedContact.getId());
         ContactData contact = new ContactData().withId(modifiedContact.getId())
                 .withFirstName("Alfa")
                 .withLastName("Beta")
                 .withAddress("Earth")
                 .withMobilePhone("+71234567890")
                 .withEmail("alfa@beta.com");
-        app.contact().modify(modifiedContact);
+        app.contact().modify(contact);
         Set<ContactData> after = app.contact().all();
         Assert.assertEquals(after.size(), before.size());
         before.remove(modifiedContact);

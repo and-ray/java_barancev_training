@@ -31,8 +31,6 @@ public class GroupModificationTests extends TestBase {
         Assert.assertEquals(after.size(), before.size());
         before.remove(modifiedGroup);
         before.add(group);
-        Comparator<? super GroupData> byId = (g1,g2)->Integer.compare(g1.getId(), g2.getId());
-
         Assert.assertEquals(before,after);
     }
 
