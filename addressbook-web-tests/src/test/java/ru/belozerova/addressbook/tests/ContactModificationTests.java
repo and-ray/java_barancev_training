@@ -1,14 +1,14 @@
 package ru.belozerova.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.belozerova.addressbook.TestBase;
 import ru.belozerova.addressbook.model.ContactData;
+import ru.belozerova.addressbook.model.Contacts;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Set;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.testng.Assert.assertEquals;
 
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
@@ -24,7 +24,7 @@ public class ContactModificationTests extends TestBase {
     }
     @Test //(enabled = false)
     public void testContactModification() {
-        Set<ContactData> before = app.contact().all();
+        Contacts before = app.contact().all();
         ContactData modifiedContact = before.iterator().next();
         System.out.println("id = "+modifiedContact.getId());
         ContactData contact = new ContactData().withId(modifiedContact.getId())
@@ -34,13 +34,9 @@ public class ContactModificationTests extends TestBase {
                 .withMobilePhone("+71234567890")
                 .withEmail("alfa@beta.com");
         app.contact().modify(contact);
-        Set<ContactData> after = app.contact().all();
-        Assert.assertEquals(after.size(), before.size());
-        before.remove(modifiedContact);
-        before.add(contact);
+        Contacts after = app.contact().all();
+        assertEquals(after.size(), before.size());
 
-        Assert.assertEquals(before,after);
-    }
-
-
+        assertThat(after, equalTo(before.without(modifiedContact).withAdded(contact)));
+        }
 }

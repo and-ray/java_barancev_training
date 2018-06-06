@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import ru.belozerova.addressbook.model.ContactData;
+import ru.belozerova.addressbook.model.Contacts;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -93,9 +94,10 @@ public class ContactHelper extends HelperBase {
         return contacts;
     }
 
-    public Set<ContactData> all() {
-       Set<ContactData> contacts = new HashSet<ContactData>();
+    public Contacts all() {
+        Contacts contacts = new Contacts();
         List<WebElement> elements = wd.findElements(By.xpath("//tr[@name='entry']"));
+
         for (WebElement element : elements) {
             List<WebElement> oneStringOfCells = element.findElements(By.cssSelector("td"));
             String name = oneStringOfCells.get(2).getText();
@@ -104,8 +106,7 @@ public class ContactHelper extends HelperBase {
             //System.out.println("фамилия " + lastName);
             int id = Integer.parseInt(element.findElement(By.cssSelector("input")).getAttribute("value"));
             //System.out.println("id = "+id);
-            ContactData contact = new ContactData().withId(id).withFirstName(name).withLastName(lastName);
-            contacts.add(contact);
+            contacts.add(new ContactData().withId(id).withFirstName(name).withLastName(lastName));
         }
         return contacts;
     }
