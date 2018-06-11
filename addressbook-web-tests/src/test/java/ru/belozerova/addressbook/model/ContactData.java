@@ -7,10 +7,17 @@ public class ContactData {
     private String firstName;
     private String lastName;
     private String address;
+    private String homePhone;
     private String mobilePhone;
+    private String workPhone;
     private String email;
+    private String email2;
+    private String email3;
+    private String allPhones;
+    private String allEmails;
 
     @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -25,6 +32,10 @@ public class ContactData {
 
         return Objects.hash(id, firstName, lastName);
     }
+
+    public String getAllPhones() {return allPhones; }
+
+    public String getAllEmails() {return allEmails; }
 
     public int getId() {
         return id;
@@ -50,6 +61,34 @@ public class ContactData {
         return email;
     }
 
+    public String getHomePhone() {        return homePhone;    }
+
+    public String getWorkPhone() {        return workPhone;    }
+
+    public String getEmail2() {        return email2;    }
+
+    public String getEmail3() {        return email3;    }
+
+
+    public ContactData withAllPhones(String allPhones) {
+        this.allPhones = allPhones;
+        return this;
+    }
+
+    public ContactData withAllEmails(String allEmails) {
+        this.allEmails = allEmails;
+        return this;
+    }
+
+    public ContactData  withHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+        return this;
+    }
+
+    public ContactData  withWorkPhone(String workPhone) {
+        this.workPhone = workPhone;
+        return this;
+    }
 
     public ContactData withId(int id) {
         this.id = id;
@@ -78,6 +117,14 @@ public class ContactData {
 
     public ContactData withEmail(String email) {
         this.email = email;
+        return this;
+    }
+    public ContactData withEmail2(String email2) {
+        this.email2 = email2;
+        return this;
+    }
+    public ContactData withEmail3(String email3) {
+        this.email3 = email3;
         return this;
     }
 
