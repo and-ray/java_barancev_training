@@ -6,6 +6,7 @@ import ru.belozerova.addressbook.TestBase;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.model.Groups;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,11 +17,18 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GroupCreationTests extends TestBase {
 
     @DataProvider
-    public Iterator<Object[]> validGroups(){
-        List<Object[]> list = new ArrayList<Object[]>(); //список из массивов, в каждом массиве - набор данных для 1 запуска
-        list.add(new Object[] {new GroupData().withName("test 1").withHeader("header 1").withFooter("footer 1")});//массив из одного объекта
-        list.add(new Object[] {new GroupData().withName("test 2").withHeader("header 2").withFooter("footer 2")}); // инфо о каждом объекте - в toString
-        list.add(new Object[] {new GroupData().withName("test 3").withHeader("header 3").withFooter("footer 3")});
+    public Iterator<Object[]> validGroups() throws IOException {
+        List<Object[]> list = new ArrayList<Object[]>(); //список из массивов, в каждом массиве - - 1 element - набор данных для 1 запуска
+        //list.add(new Object[] {new GroupData().withName("test 1").withHeader("header 1").withFooter("footer 1")});//массив из одного объекта
+        //list.add(new Object[] {new GroupData().withName("test 2").withHeader("header 2").withFooter("footer 2")}); // инфо о каждом объекте - в toString
+        //list.add(new Object[] {new GroupData().withName("test 3").withHeader("header 3").withFooter("footer 3")});
+        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
+        String line = reader.readLine(); //чтение 1 строки
+        while (line!=null) {
+        String[] split = line.split(";");
+        list.add(new Object[]{new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+            line = reader.readLine();
+        }
         return list.iterator(); //итератор списка
     }
 
@@ -35,7 +43,7 @@ public class GroupCreationTests extends TestBase {
         assertThat(after,equalTo(
                 before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
     }
-    @Test
+    @Test(enabled = false)
     public void testBadGroupCreation() {
         app.goTo().GroupPage();
         Groups before = app.group().all();
