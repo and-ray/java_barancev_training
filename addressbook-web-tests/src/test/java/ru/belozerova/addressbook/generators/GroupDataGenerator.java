@@ -49,6 +49,8 @@ public class GroupDataGenerator {
 
     private void saveAsXml(List<GroupData> groups, File file) throws IOException {
         XStream xstream = new XStream();
+//        xstream.alias("group", GroupData.class);
+        xstream.processAnnotations(GroupData.class);
         String xml = xstream.toXML(groups);
         Writer writer = new FileWriter(file);
         writer.write(xml);
@@ -68,7 +70,7 @@ public class GroupDataGenerator {
         List<GroupData> groups = new ArrayList<GroupData>();
         for (int i = 0; i< count; i++) {
             groups.add(new GroupData().withName(String.format("test %s", i))
-                    .withHeader(String.format("header %s", i)).withFooter(String.format("footer %s", i)));
+                    .withHeader(String.format("header \n %s", i)).withFooter(String.format("footer %s", i)));
         }
         return groups;
     }

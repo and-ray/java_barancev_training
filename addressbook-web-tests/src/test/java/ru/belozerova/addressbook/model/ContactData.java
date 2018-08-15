@@ -1,16 +1,23 @@
 package ru.belozerova.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+
 import java.io.File;
 import java.util.Objects;
 
 public class ContactData {
     private int id = Integer.MAX_VALUE;
+    @Expose
     private String firstName;
+    @Expose
     private String lastName;
+    @Expose
     private String address;
     private String homePhone;
+    @Expose
     private String mobilePhone;
     private String workPhone;
+    @Expose
     private String email;
     private String email2;
     private String email3;
@@ -32,6 +39,9 @@ public class ContactData {
         ContactData that = (ContactData) o;
         return id == that.id &&
                 Objects.equals(firstName, that.firstName) &&
+                //Objects.equals(address, that.address) &&
+               // Objects.equals(email, that.email) &&
+               // Objects.equals(mobilePhone, that.mobilePhone) &&
                 Objects.equals(lastName, that.lastName);
     }
 
