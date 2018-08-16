@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "Alfa 0",
+    "lastName": "Beta 0",
+    "address": "Earth, house \n 0",
+    "mobilePhone": "+71234567890",
+    "email": "alfa@beta.com"
+  },
+  {
+    "firstName": "Alfa 1",
+    "lastName": "Beta 1",
+    "address": "Earth, house \n 1",
+    "mobilePhone": "+71234567890",
+    "email": "alfa@beta.com"
+  },
+  {
+    "firstName": "Alfa 2",
+    "lastName": "Beta 2",
+    "address": "Earth, house \n 2",
+    "mobilePhone": "+71234567890",
+    "email": "alfa@beta.com"
+  }
+]

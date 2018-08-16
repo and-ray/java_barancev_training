@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.belozerova.addressbook.tests.ContactCreationTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-08-16T19:04:25" hostname="user-ПК" time="13.329">
+  <properties/>
+  <testcase name="testContactCreation[0](ContactData{id=2147483647, firstName='Alfa 0', lastName='Beta 0', email ='alfa@beta.com', address ='Earth, house &#10; 0', mobilePhone='+71234567890'})" classname="ru.belozerova.addressbook.tests.ContactCreationTests" time="5.839"/>
+  <testcase name="testContactCreation[1](ContactData{id=2147483647, firstName='Alfa 1', lastName='Beta 1', email ='alfa@beta.com', address ='Earth, house &#10; 1', mobilePhone='+71234567890'})" classname="ru.belozerova.addressbook.tests.ContactCreationTests" time="3.646"/>
+  <testcase name="testContactCreation[2](ContactData{id=2147483647, firstName='Alfa 2', lastName='Beta 2', email ='alfa@beta.com', address ='Earth, house &#10; 2', mobilePhone='+71234567890'})" classname="ru.belozerova.addressbook.tests.ContactCreationTests" time="3.844"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
