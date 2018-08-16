@@ -63,10 +63,12 @@ public class ContactDataGenerator {
             writer.close();
         }
         private void saveAsJson(List<ContactData> contacts, File file) throws IOException {
+           //сериализуем объект в файл
             Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
-            String json = gson.toJson(contacts);
+            String json = gson.toJson(contacts); //превращаем объект в строку.
+            System.out.println("строка для записи: " + json);
             Writer writer = new FileWriter(file);
-            writer.write(json);
+            writer.write(json); //строку пишем в файл
             writer.close();
         }
 
@@ -84,7 +86,7 @@ public class ContactDataGenerator {
             List<ContactData> contacts = new ArrayList<ContactData>();
             for (int i = 0; i< count; i++) {
                 contacts.add(new ContactData().withFirstName(String.format("Alfa %s", i))
-                        .withLastName(String.format("Beta\n%s", i)).withAddress(String.format("Earth, house %s", i)).
+                        .withLastName(String.format("Beta %s", i)).withAddress(String.format("Earth, house \n %s", i)).
                                 withEmail("alfa@beta.com").withMobilePhone("+71234567890"));
             }
             return contacts;

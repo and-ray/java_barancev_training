@@ -156,6 +156,9 @@ public class ContactData {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", email ='" + email + '\'' +
+                ", address ='" + address + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
                 '}';
     }
 

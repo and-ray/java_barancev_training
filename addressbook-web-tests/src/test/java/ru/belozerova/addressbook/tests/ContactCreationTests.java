@@ -26,7 +26,6 @@ public class ContactCreationTests extends TestBase {
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.json")));
         String json = "";
         String line = reader.readLine(); //чтение 1 строки
-        System.out.println("contact = " + line);
         while (line!=null) {
             json += line;
             line = reader.readLine();

@@ -104,7 +104,6 @@ public class ContactHelper extends HelperBase {
             //System.out.println("id = "+id);
             contactCache.add(new ContactData().withId(id).withFirstName(name).withLastName(lastName).
                     withAllPhones(allPhones).withAllEmails(allEmails).withAddress(address));
-            System.out.println("содержимое кеша: "+(contactCache));
         }
         return new Contacts(contactCache);
     }
