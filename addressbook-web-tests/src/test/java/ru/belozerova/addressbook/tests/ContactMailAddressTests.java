@@ -14,8 +14,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactMailAddressTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions(){
-        app.gotoHomePage();
-        if (app.contact().all().size()==0) {
+        if (app.db().contacts().size()==0) {
+            app.gotoHomePage();
             app.contact().create(new ContactData().withFirstName("Alfa")
                     .withLastName("Beta")
                     .withAddress("Earth")
@@ -28,7 +28,7 @@ public class ContactMailAddressTests extends TestBase {
         app.gotoHomePage();
         ContactData contact = app.contact().all().iterator().next();//множество контактов. выбираем один случайный из одного =)
         ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
-       assertThat(contact.getAddress(), equalTo((contactInfoFromEditForm.getAddress())));
+        assertThat(contact.getAddress(), equalTo((contactInfoFromEditForm.getAddress())));
 
     }
 

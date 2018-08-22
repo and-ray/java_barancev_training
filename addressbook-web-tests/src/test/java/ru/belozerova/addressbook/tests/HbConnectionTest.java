@@ -1,11 +1,13 @@
 package ru.belozerova.addressbook.tests;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import ru.belozerova.addressbook.model.ContactData;
 import ru.belozerova.addressbook.model.GroupData;
 
 import javax.persistence.EntityManager;
@@ -33,7 +35,7 @@ public class HbConnectionTest {
             StandardServiceRegistryBuilder.destroy( registry );
         }
     }
-
+/*
     @Test
     public void testHbConnection(){
         EntityManager entityManager = sessionFactory.createEntityManager();
@@ -44,5 +46,17 @@ public class HbConnectionTest {
         }
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+*/
+    @Test
+    public void testHbConnection(){
+        Session session = sessionFactory.openSession();
+        session.getTransaction().begin();
+        List<ContactData> result = session.createQuery( "from ContactData where deprecated = '0000-00-00'", ContactData.class ).getResultList();
+        for ( ContactData contact : result ) {
+            System.out.println( contact );
+        }
+        session.getTransaction().commit();
+        session.close();
     }
 }

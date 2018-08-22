@@ -44,13 +44,15 @@ public class ContactCreationTests extends TestBase {
     @Test(dataProvider = "validContactsFromJson")
     public void testContactCreation(ContactData contact) {
         app.gotoHomePage();
-        Contacts before = app.contact().all();
+        Contacts before = app.db().contacts();
         //File photo = new File("src/test/resources/icon001.png");
+        app.goTo().gotoHomePage();
         app.contact().create(contact);
         assertThat(app.contact().count(), equalTo(before.size() + 1));
-        Contacts after = app.contact().all();
+        Contacts after = app.db().contacts();
         assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((g)-> g.getId()).max().getAsInt()))));
     }
+
     @Test (enabled = false)
     public void testCurrentDir() { //определяем текущую папку.
         //File currentDir = new File(".");
@@ -58,6 +60,5 @@ public class ContactCreationTests extends TestBase {
         File photo = new File("src/test/resources/icon001.png");
         System.out.println(photo.getAbsolutePath());
         System.out.println(photo.exists());
-
     }
 }
