@@ -1,5 +1,5 @@
 package ru.belozerova.addressbook.model;
-
+// коллекция из групп
 import com.google.common.collect.ForwardingSet;
 
 import java.util.HashSet;
