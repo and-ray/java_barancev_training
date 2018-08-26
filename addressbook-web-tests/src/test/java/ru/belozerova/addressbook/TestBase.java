@@ -42,12 +42,12 @@ public class TestBase {
     public void verifyContactListInUI() {
         if (Boolean.getBoolean("verifyUI")) {
             Contacts dbContacts = app.db().contacts();
-            System.out.println("db" + dbContacts);
+            //System.out.println("db" + dbContacts);
             Contacts uiContacts = app.contact().all();
-            System.out.println("ui" + uiContacts);
+            //System.out.println("ui" + uiContacts);
             assertThat(uiContacts, equalTo(dbContacts.stream()
                     .map((g) -> new ContactData().withId(g.getId()).withFirstName(g.getFirstName())
-                    .withLastName(g.getLastName()))
+                    .withLastName(g.getLastName()).withAllPhones(g.getAllPhones()).withAllEmails(g.getAllEmails()).withAddress(g.getAddress()))
                     .collect(Collectors.toSet())));
         }
     }

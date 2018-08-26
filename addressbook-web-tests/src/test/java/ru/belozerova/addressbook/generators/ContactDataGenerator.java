@@ -66,7 +66,7 @@ public class ContactDataGenerator {
            //сериализуем объект в файл
             Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
             String json = gson.toJson(contacts); //превращаем объект в строку.
-            System.out.println("строка для записи: " + json);
+            //System.out.println("строка для записи: " + json);
             Writer writer = new FileWriter(file);
             writer.write(json); //строку пишем в файл
             writer.close();
