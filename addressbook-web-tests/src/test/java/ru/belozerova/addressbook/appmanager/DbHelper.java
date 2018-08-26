@@ -24,7 +24,7 @@ public class DbHelper {
 
     }
 
-    public Groups groups() {
+    public Groups groups() { //сколько групп в бд
         Session session = sessionFactory.openSession();
         session.getTransaction().begin();
         List<GroupData> result = session.createQuery( "from GroupData", GroupData.class ).getResultList();

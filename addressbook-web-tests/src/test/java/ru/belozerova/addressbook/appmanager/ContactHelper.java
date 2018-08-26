@@ -3,6 +3,8 @@ package ru.belozerova.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.belozerova.addressbook.model.ContactData;
 import ru.belozerova.addressbook.model.Contacts;
 
@@ -31,6 +33,21 @@ public class ContactHelper extends HelperBase {
         type(By.name("email"), contactData.getEmail());
         //attach(By.name("photo"), contactData.getPhoto());
 
+    }
+
+    public void fillContactForm(ContactData contactData, boolean creation) {
+        type(By.name("firstname"), contactData.getFirstName());
+        type(By.name("lastname"), contactData.getLastName());
+        type(By.name("address"), contactData.getAddress());
+        type(By.name("mobile"), contactData.getMobilePhone());
+        type(By.name("email"), contactData.getEmail());
+        //attach(By.name("photo"), contactData.getPhoto());
+        if (creation) {
+            if (contactData.getGroups().size() > 0) {
+                Assert.assertTrue(contactData.getGroups().size()==1);
+             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+            }
+        }
     }
 
     public void initContactCreation() {
@@ -110,7 +127,7 @@ public class ContactHelper extends HelperBase {
 
     public void create(ContactData contacts) {
         initContactCreation();
-        fillContactForm(contacts);
+        fillContactForm(contacts, true);
         submitContactCreation();
         contactCache = null;
         returnToHomePage();
