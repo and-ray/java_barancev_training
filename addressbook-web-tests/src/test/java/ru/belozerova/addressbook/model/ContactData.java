@@ -43,6 +43,26 @@ public class ContactData {
     private String workPhone;
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(firstName, that.firstName) &&
+                Objects.equals(lastName, that.lastName) &&
+                Objects.equals(address, that.address) &&
+                Objects.equals(mobilePhone, that.mobilePhone) &&
+                Objects.equals(groups, that.groups) &&
+                Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, firstName, lastName, address, mobilePhone, groups, email);
+    }
+
     public ContactData inGroup(GroupData group) {
         groups.add(group);
         return this;
@@ -71,25 +91,6 @@ public class ContactData {
     @Column(name="photo")
     @Type(type="text")
     private String photo;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ContactData that = (ContactData) o;
-        return id == that.id &&
-                Objects.equals(firstName, that.firstName) &&
-                Objects.equals(lastName, that.lastName) &&
-                Objects.equals(address, that.address) &&
-                Objects.equals(mobilePhone, that.mobilePhone) &&
-                Objects.equals(email, that.email);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, firstName, lastName, address, homePhone, mobilePhone, workPhone, email);
-    }
 
     public File getPhoto() {
         return new File(photo);

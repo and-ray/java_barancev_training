@@ -33,11 +33,11 @@ public class ContactDeletionTests extends TestBase {
     }
     @Test //(enabled = false)
     public void testContactDeletion() {
-        Contacts before = app.db().contacts();
+        Contacts before = app.db().contacts();// ОБЪЕКТЫ ЦЕЛИКОМ!!!
         ContactData deletedContact = before.iterator().next();
-        app.goTo().gotoHomePage();
+        app.gotoHomePage();
         app.contact().delete(deletedContact);
-        assertThat(app.contact().count(), equalTo(before.size() - 1));
+        assertThat(app.contact().count(), equalTo(before.size() - 1)); //считаю кол-во через ИФС страницы
         Contacts after = app.db().contacts();
         assertThat(after, equalTo(before.without(deletedContact)));
         verifyContactListInUI();

@@ -66,6 +66,13 @@ public class ContactHelper extends HelperBase {
         wd.findElement(By.xpath("//tr[@name='entry']//input[@id='"+id+"']")).click();
     }
 
+    public void addContactToGroup() {
+        wd.findElement(By.xpath("//input[@type='submit']")).click();
+    }
+    public void removeContactFromGroup() {
+        wd.findElement(By.xpath("//input[@name='remove']")).click();
+    }
+
 
     public void InitContactModificationById(int id) {
         wd.findElement(By.xpath("//a[@href='edit.php?id="+id+"']")).click();

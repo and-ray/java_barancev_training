@@ -3,6 +3,7 @@ package ru.belozerova.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.model.Groups;
 
@@ -95,5 +96,12 @@ public class GroupHelper extends HelperBase{
         deleteSelectedGroups();
         groupCache = null;
         returnToGroupPage();
+    }
+
+    public void selectGroupToIncludeContact(GroupData group) {
+        new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
+    }
+    public void selectGroupToCheckIncludedContacts(GroupData group) {
+        new Select(wd.findElement(By.name("group"))).selectByVisibleText(group.getName());
     }
 }

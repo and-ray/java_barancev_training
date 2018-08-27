@@ -21,7 +21,7 @@ public class ContactModificationTests extends TestBase {
             app.group().create(new GroupData().withName("test1").withHeader("hiiiii").withFooter("foooo"));
         }
         Groups groups = app.db().groups();
-        app.gotoHomePage();
+        //app.gotoHomePage();
         if (app.db().contacts().size() == 0)  {
             app.goTo().gotoHomePage();
             app.contact().create(new ContactData().withFirstName("Alfa")
