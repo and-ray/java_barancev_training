@@ -29,6 +29,11 @@ public class ContactData {
     @Type(type="text")
     private String address;
 
+    @Expose
+    @Column(name="email")
+    @Type(type="text")
+    private String email;
+
     @Column(name="home")
     @Type(type="text")
     private String homePhone;
@@ -76,9 +81,7 @@ public class ContactData {
         return new Groups(groups); //возвращаем не множество групп, а объект типа Групс, для конкретного контакта, включенного в группу.
     }
 
-    @Expose
-    @Type(type="text")
-    private String email;
+
     @Transient
     private String email2;
     @Transient

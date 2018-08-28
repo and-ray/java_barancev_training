@@ -15,7 +15,7 @@ public class RemoveContactFromGroupTests extends TestBase {
         @BeforeMethod
         public void ensurePreconditions() {
             if (app.db().groups().size() == 0) {
-                app.goTo().GroupPage(); //если нет группы тест1 - варганю ее.
+                app.goTo().GroupPage(); //если нет группы тест1 - создаю ее.
                 app.group().create(new GroupData().withName("test1").withHeader("hiiiii").withFooter("foooo"));
             }
         }
@@ -23,8 +23,7 @@ public class RemoveContactFromGroupTests extends TestBase {
         @Test
         public void testRemoveContactFromGroup() {
             Groups groups = app.db().groups();
-            Contacts beforeContacts = app.db().contacts();
-            GroupData ourGroup = groups.iterator().next(); //- все, а не только наша.
+            GroupData ourGroup = groups.iterator().next(); //- любая, и мы ее делаем нашей =).
             app.gotoHomePage();
                 ContactData removingContact = new ContactData().withFirstName("Alfa")
                         .withLastName("Beta")
@@ -33,15 +32,23 @@ public class RemoveContactFromGroupTests extends TestBase {
                         .withEmail("alfa@beta.com").inGroup(ourGroup);
             app.contact().create(removingContact);
 
-            removingContact = beforeContacts.iterator().next();
+            int id = app.db().getContactLastId(removingContact);
             app.group().selectGroupToCheckIncludedContacts(ourGroup);
-            //app.contact().selectContactById(contacts.iterator().next());    // ?
+            app.contact().selectContactById(id);    // ?
             app.contact().removeContactFromGroup();
-
-            app.gotoHomePage();
+            ContactData contactToCompare = new ContactData();
             Contacts afterContacts = app.db().contacts();
-            assertThat(afterContacts, equalTo(beforeContacts.without(removingContact)));
-           // assertThat(removingContact.getGroups(), !equals(ourGroup));
-        }
+            for(ContactData contact: afterContacts){
+                //System.out.println("contact.getId() = " + contact.getId());
+                //System.out.println("addingToGroupContact.getId() = " + addingToGroupContact.getId());
+                if (contact.getId() == id){
+                    contactToCompare = contact;
+                    break;
+                }
+            }
+            //System.out.println("группы контакта из базы + ликвидируемая группа" + contactToCompare.inGroup(ourGroup).getGroups());
+            //System.out.println("группы исходного контакта" + removingContact.getGroups());
+            assertThat(contactToCompare.inGroup(ourGroup).getGroups(), equalTo(removingContact.getGroups()));
+            }
     }
 
