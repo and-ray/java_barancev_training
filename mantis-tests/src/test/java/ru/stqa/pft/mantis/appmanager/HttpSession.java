@@ -26,7 +26,7 @@ public class HttpSession {
     }
 
     public boolean login(String username, String password) throws IOException {
-        HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login_page.php");
+        HttpPost post = new HttpPost(app.getProperty("web.baseUrl") + "/login.php"); ///login_page.php
         List<NameValuePair> params = new ArrayList<NameValuePair>();
         params.add(new BasicNameValuePair("username", username));
         params.add(new BasicNameValuePair("password", password));
@@ -50,6 +50,7 @@ public class HttpSession {
         HttpGet get = new HttpGet(app.getProperty("web.baseUrl") + "/my_view_page.php");
         CloseableHttpResponse response = httpclient.execute(get);
         String body = geTextFrom(response);
-        return body.contains(String.format("<a href=\"/mantisbt/account_page.php\">%s</a>", username));
+        //return body.contains(String.format("<span class=\"italic\">%s</span>", username)); //не работает =)
+        return body.contains(String.format("<a href=\"/mantisbt//account_page.php\">%s</a>", username));
     }
 }
