@@ -22,6 +22,8 @@ public class ApplicationManager {
     private final Properties properties;
     private RegistrationHelper registrationHelper;
     private FtpHelper ftpHelper;
+    private MailHelper mailHelper;
+    private MantisUsageHelper mantisUsageHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -39,7 +41,7 @@ public class ApplicationManager {
         }
     }
 
-    public HttpSession newSession () {
+    public HttpSession newSession() {
         return new HttpSession(this);
     }
 
@@ -48,20 +50,21 @@ public class ApplicationManager {
     }
 
     public RegistrationHelper registration() {
-        if (registrationHelper == null){
+        if (registrationHelper == null) {
             registrationHelper = new RegistrationHelper(this);
         }
         return registrationHelper;
     }
+
     public FtpHelper ftp() {
-        if (ftpHelper == null){
+        if (ftpHelper == null) {
             ftpHelper = new FtpHelper(this);
         }
         return ftpHelper;
     }
 
     public WebDriver getDriver() {
-        if (wd == null){
+        if (wd == null) {
             if (browser.equals(BrowserType.FIREFOX)) {
                 wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
             } else if (browser.equals(BrowserType.CHROME)) {
@@ -74,4 +77,17 @@ public class ApplicationManager {
         }
         return wd;
     }
+
+    public MailHelper mail(){
+        if(mailHelper == null){
+            mailHelper = new MailHelper(this);
+            }
+            return mailHelper;
     }
+    public MantisUsageHelper mantisUsage(){
+        if(mantisUsageHelper == null){
+            mantisUsageHelper = new MantisUsageHelper(this);
+            }
+            return mantisUsageHelper;
+    }
+}
