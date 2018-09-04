@@ -9,13 +9,19 @@ import ru.belozerova.addressbook.model.Contacts;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.model.Groups;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
+
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.testng.Assert.assertEquals;
 
 public class ContactDeletionTests extends TestBase {
     @BeforeMethod
-    public void ensurePreconditions(){
+    public void ensurePreconditions() throws IOException {
+
+        skipIfNotFixed(0000001);
         app.goTo().GroupPage();
         if (app.db().groups().size()==0) {
             app.goTo().GroupPage();

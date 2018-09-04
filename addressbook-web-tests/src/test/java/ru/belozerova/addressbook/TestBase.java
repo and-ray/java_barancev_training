@@ -1,6 +1,7 @@
 package ru.belozerova.addressbook;
 
 import org.openqa.selenium.remote.BrowserType;
+import org.testng.SkipException;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import ru.belozerova.addressbook.appmanager.ApplicationManager;
@@ -9,6 +10,9 @@ import ru.belozerova.addressbook.model.Contacts;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.model.Groups;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.rmi.RemoteException;
 import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -49,6 +53,18 @@ public class TestBase {
                     .map((g) -> new ContactData().withId(g.getId()).withFirstName(g.getFirstName())
                     .withLastName(g.getLastName()).withAllPhones(g.getAllPhones()).withAllEmails(g.getAllEmails()).withAddress(g.getAddress()))
                     .collect(Collectors.toSet())));
+        }
+    }
+
+    public boolean isIssueOpen(int issueId) throws IOException {
+        String status = app.rest().getBugStatus(issueId);
+        System.out.println("FYI, status of attached bug with id = " +issueId + " is "+ status);
+        return !status.equals("Resolved");
+    }
+
+    public void skipIfNotFixed(int issueId) throws IOException {
+        if (isIssueOpen(issueId)) {
+            throw new SkipException("Ignored because of issue " + issueId);
         }
     }
 }

@@ -13,7 +13,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.5'
     compile 'mysql:mysql-connector-java:8.0.12'
     compile 'org.hibernate:hibernate-core:5.3.5.Final'
-
+    compile 'org.apache.httpcomponents:fluent-hc:4.5.3'
 }
 
 task testGroups(type: Test) {
