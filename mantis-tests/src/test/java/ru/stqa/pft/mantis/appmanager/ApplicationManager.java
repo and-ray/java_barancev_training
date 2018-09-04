@@ -1,6 +1,5 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import com.oracle.jrockit.jfr.management.FlightRecorderMBean;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;

@@ -11,8 +11,7 @@ public class HelperBase {
     protected WebDriver wd;
     protected ApplicationManager app;
 
-    public HelperBase(ApplicationManager app)
-    {
+    public HelperBase(ApplicationManager app)    {
         this.app = app;
         this.wd = app.getDriver(); //ленивая инициализация для открытия браузера.
     }
@@ -31,11 +30,13 @@ public class HelperBase {
             }
         }
     }
+
     protected void attach(By locator, File file) {
         if (file!=null){
         wd.findElement(locator).sendKeys(file.getAbsolutePath());
         }
     }
+
     protected boolean isElementPresent(By locator){
         try{
             wd.findElement(locator);
@@ -44,6 +45,7 @@ public class HelperBase {
         catch(NoSuchElementException e){
             return false;}
     }
+
     public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();

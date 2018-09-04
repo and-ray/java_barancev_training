@@ -10,9 +10,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static org.testng.Assert.assertEquals;
 
