@@ -28,9 +28,13 @@ public class RestHelper {
         String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues/"+issueId+".json"))
                 .returnContent().asString();
         JsonElement parsed = new JsonParser().parse(json);
-        return parsed.getAsJsonObject().get("state_name").toString();
+        //System.out.println(parsed.toString());
+        JsonElement var2 = parsed.getAsJsonObject().get("state_name");
+        System.out.println("state = "+var2.toString());
+       //System.out.println(var2.getAsJsonObject().get("state_name").toString());
+       //System.out.println(var2.getAsJsonObject().get("state_name").toString());
         //HashMap<String, String> issueFields = new Gson().fromJson(issue, new TypeToken<HashMap<String, String>>(){}.getType());                                                                                                                                                        //1
-        //return issueFields.get("state_name");
-      //  return "";//issueState;
+
+        return "";
     }
 }
