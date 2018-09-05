@@ -25,16 +25,11 @@ public class RestHelper {
 
 
     public String getBugStatus(int issueId) throws IOException {
-        String json = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues/"+issueId+".json"))
+        String jsonString = getExecutor().execute(Request.Get("http://bugify.stqa.ru/api/issues/"+issueId+".json"))
                 .returnContent().asString();
-        JsonElement parsed = new JsonParser().parse(json);
-        //System.out.println(parsed.toString());
-        JsonElement var2 = parsed.getAsJsonObject().get("state_name");
-        System.out.println("state = "+var2.toString());
-       //System.out.println(var2.getAsJsonObject().get("state_name").toString());
-       //System.out.println(var2.getAsJsonObject().get("state_name").toString());
-        //HashMap<String, String> issueFields = new Gson().fromJson(issue, new TypeToken<HashMap<String, String>>(){}.getType());                                                                                                                                                        //1
-
-        return "";
+        JsonElement parsedJSon = new JsonParser().parse(jsonString);
+        JsonElement jsonArray = parsedJSon.getAsJsonObject().get("issues").getAsJsonArray().get(0);
+            //String state = ;
+        return jsonArray.getAsJsonObject().get("state_name").toString().replaceAll("\"", "");
     }
 }

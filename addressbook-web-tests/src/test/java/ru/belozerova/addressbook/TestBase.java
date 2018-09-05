@@ -58,7 +58,7 @@ public class TestBase {
 
     public boolean isIssueOpen(int issueId) throws IOException {
         String status = app.rest().getBugStatus(issueId);
-        System.out.println("FYI, status of attached bug with id = " +issueId + " is "+ status);
+        System.out.println("FYI, status of attached bug with id = " +issueId + " is "+ status + "  +truely ");
         return !status.equals("Resolved");
     }
 
