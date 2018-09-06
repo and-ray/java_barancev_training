@@ -21,7 +21,7 @@ public class RegistrationTests extends TestBase {
     }
 
     @Test
-    public static void testRegistration() throws IOException, MessagingException {
+    public static void testRegistration() throws IOException {
         long now = System.currentTimeMillis();
         String user = String.format("user%s", now);
         String password = "password";

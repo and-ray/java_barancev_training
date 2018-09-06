@@ -20,7 +20,7 @@ public class RegistrationHelper extends HelperBase{
        // System.out.println("1");
        type(By.name("password"),password);
        type(By.name("password_confirm"),password);
-        click(By.cssSelector("span[class='bigger-110']"));// селектор, конечно, не айс, но спасибо хоть класс есть.
+       click(By.cssSelector("span[class='bigger-110']"));// селектор, конечно, не айс, но спасибо хоть класс есть.
 
     }
 }

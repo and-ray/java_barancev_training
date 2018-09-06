@@ -33,8 +33,8 @@ public class MantisUsageHelper extends HelperBase{
     }
 
     public String getEmail(String userName) {
-        String email = wd.findElement(By.xpath("(//div[@class='table-responsive']//following-sibling::td/a[text()='user1535660128034']/../../*)[3]")).getText();
-            System.out.println("адрес пользователя: " + email);
+        String email = wd.findElement(By.xpath("(//div[@class='table-responsive']//following-sibling::td/a[text()='"+userName+"']/../../*)[3]")).getText();
+        //System.out.println("адрес пользователя: " + email);
         return email;
     }
 }

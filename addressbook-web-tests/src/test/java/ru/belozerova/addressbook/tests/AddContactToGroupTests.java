@@ -18,25 +18,34 @@ public class AddContactToGroupTests extends TestBase {
             app.goTo().GroupPage(); //если нет группы тест1 - создаю ее.
             app.group().create(new GroupData().withName("test1").withHeader("hiiiii").withFooter("foooo"));
         }
+        //Groups groups = app.db().groups();
+        app.gotoHomePage();
+        if (app.db().contacts().size()==0) {
+            app.contact().create(new ContactData().withFirstName("Alfa")
+                    .withLastName("Beta")
+                    .withAddress("Earth")
+                    .withMobilePhone("+71234567890")
+                    .withEmail("alfa@beta.com"));
+        }
     }
 
     @Test
     public void testAddContactToGroup() {
-        ContactData addingToGroupContact = new ContactData().withFirstName("Alfa")
-                .withLastName("Beta")
-                .withAddress("Earth")
-                .withMobilePhone("+71234567890")
-                .withEmail("alfa@beta.com");
-        app.contact().create(addingToGroupContact);
-
+    /*    Contacts beforeContacts = app.db().contacts();
         Groups beforeGroups = app.db().groups();
-        GroupData groupForAddingContact = beforeGroups.iterator().next();
-        app.gotoHomePage();
+        ContactData contactBeforeAdding = beforeContacts.iterator().next();
+        Groups initialGroupList = contactBeforeAdding.getGroups();
+       if (initialGroupList.equals(beforeGroups)){
+        app.group().create(new GroupData().withName("testNew").withHeader("hiiiii").withFooter("foooo"));}
 
-        int id = app.db().getContactLastId(addingToGroupContact);
+  //      GroupData groupForAddingContact =// beforeGroups.iterator().next();//новая группа строго!
+    //    app.gotoHomePage();
+
+        int id = contactBeforeAdding.getId();
         app.contact().selectContactById(id);
         app.group().selectGroupToIncludeContact(groupForAddingContact);
         app.contact().addContactToGroup();
+
         Contacts afterContacts = app.db().contacts();
         ContactData contactToCompare = new ContactData();
         for(ContactData contact: afterContacts){
@@ -47,6 +56,8 @@ public class AddContactToGroupTests extends TestBase {
                 break;
             }
         }
+        System.out.println("список групп контакта из БД" + contactToCompare.getGroups());
+        System.out.println("список групп исходного контакта + добавляемая группа" + addingToGroupContact.inGroup(groupForAddingContact).getGroups());
         assertThat(contactToCompare.getGroups(), equalTo(addingToGroupContact.inGroup(groupForAddingContact).getGroups()));
-    }
+    */}
 }
