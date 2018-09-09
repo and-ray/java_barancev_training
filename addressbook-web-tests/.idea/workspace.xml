@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="52b75488-e99a-4904-80fd-cc31f5e3002f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/MantisUsageHelper.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/appmanager/MantisUsageHelper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/tests/ChangeUserPasswordTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/../mantis-tests/out/test/classes/ru/stqa/pft/mantis/tests/ChangeUserPasswordTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/src/test/java/ru/belozerova/lesson2/PointTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/src/test/java/ru/belozerova/lesson2/PointTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/testng-groups.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/testng-groups.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -77,11 +74,38 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointTests.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PointTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../sandbox/src/test/java/ru/belozerova/lesson2/PointTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="861">
-              <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+            <state relative-caret-position="252">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="testng-groups.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/testng-groups.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="6" column="83" selection-start-line="6" selection-start-column="83" selection-end-line="6" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GroupModificationTests.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/tests/GroupModificationTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="688">
+              <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -1538,7 +1562,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/model/Contacts.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/model/Groups.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/tests/ContactEmailTests.java" />
         <option value="$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/tests/ContactMailAddressTests.java" />
@@ -1589,12 +1612,13 @@
         <option value="$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/appmanager/DbHelper.java" />
         <option value="$PROJECT_DIR$/../sandbox/build.gradle" />
         <option value="$PROJECT_DIR$/../sandbox/src/test/java/ru/belozerova/lesson2/PointTests.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/testng-groups.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="522" />
-    <option name="y" value="114" />
+    <option name="x" value="749" />
+    <option name="y" value="62" />
     <option name="width" value="1789" />
     <option name="height" value="1372" />
   </component>
@@ -1609,42 +1633,49 @@
           <expand>
             <path>
               <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="belozerova" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sandbox" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="belozerova" type="462c0819:PsiDirectoryNode" />
-              <item name="lesson2" type="462c0819:PsiDirectoryNode" />
+              <item name="addressbook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="addressbook" type="462c0819:PsiDirectoryNode" />
+              <item name="tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="addressbook-web-tests" type="b2602c69:ProjectViewProjectNode" />
+              <item name="addressbook-web-tests" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1664,19 +1695,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\And-Ray\it_learning\ProjectJava20May\java_barancev_training\mantis-tests\src\test\resources" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.stqa.pft.rest" />
+      <recent name="ru.stqa.pft.mantis.appmanager" />
+      <recent name="ru.belozerova.addressbook.appmanager" />
+      <recent name="ru.belozerova.addressbook" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.belozerova.addressbook.model" />
       <recent name="ru.stqa.pft.mantis.appmanager" />
       <recent name="ru.stqa.pft.mantis.tests" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.stqa.pft.rest" />
-      <recent name="ru.stqa.pft.mantis.appmanager" />
-      <recent name="ru.belozerova.addressbook.appmanager" />
-      <recent name="ru.belozerova.addressbook" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\And-Ray\it_learning\ProjectJava20May\java_barancev_training\mantis-tests\src\test\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1691,7 +1722,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.SoapTests.testCreateIssue">
+  <component name="RunManager" selected="TestNG.GroupModificationTests">
     <configuration name="ContactDataGenerator" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ru.belozerova.addressbook.generators.ContactDataGenerator" />
       <module name="addressbook-web-tests_test" />
@@ -1775,19 +1806,19 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="ContactDeletionTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="addressbook-web-tests_test" />
+    <configuration name="EquationTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="sandbox_test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.belozerova.addressbook.tests.*" />
+          <option name="PATTERN" value="ru.belozerova.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="ru.belozerova.addressbook.tests" />
-      <option name="MAIN_CLASS_NAME" value="ru.belozerova.addressbook.tests.ContactDeletionTests" />
+      <option name="PACKAGE_NAME" value="ru.belozerova" />
+      <option name="MAIN_CLASS_NAME" value="ru.belozerova.EquationTests" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -1804,19 +1835,19 @@
       <properties />
       <listeners />
     </configuration>
-    <configuration name="EquationTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="sandbox_test" />
+    <configuration name="GroupModificationTests" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="addressbook-web-tests_test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.belozerova.*" />
+          <option name="PATTERN" value="ru.belozerova.addressbook.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="ru.belozerova" />
-      <option name="MAIN_CLASS_NAME" value="ru.belozerova.EquationTests" />
+      <option name="PACKAGE_NAME" value="ru.belozerova.addressbook.tests" />
+      <option name="MAIN_CLASS_NAME" value="ru.belozerova.addressbook.tests.GroupModificationTests" />
       <option name="METHOD_NAME" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="CLASS" />
@@ -1886,19 +1917,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.ContactDataGenerator" />
-      <item itemvalue="TestNG.ContactDeletionTests" />
       <item itemvalue="TestNG.AddContactToGroupTests.testAddContactToGroup" />
       <item itemvalue="TestNG.ChangeUserPasswordTests" />
       <item itemvalue="TestNG.EquationTests" />
       <item itemvalue="TestNG.SoapTests.testCreateIssue" />
+      <item itemvalue="TestNG.GroupModificationTests" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GroupModificationTests" />
         <item itemvalue="TestNG.SoapTests.testCreateIssue" />
         <item itemvalue="TestNG.EquationTests" />
         <item itemvalue="TestNG.ChangeUserPasswordTests" />
         <item itemvalue="TestNG.AddContactToGroupTests.testAddContactToGroup" />
-        <item itemvalue="TestNG.ContactDeletionTests" />
       </list>
     </recent_temporary>
   </component>
@@ -1916,9 +1947,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ChangeUserPasswordTests - 2018.09.06 at 23h 13m 34s.xml">
-      <configuration name="ChangeUserPasswordTests" configurationId="TestNG" />
-    </history-entry>
     <history-entry file="ChangeUserPasswordTests - 2018.09.06 at 23h 16m 14s.xml">
       <configuration name="ChangeUserPasswordTests" configurationId="TestNG" />
     </history-entry>
@@ -1946,24 +1974,28 @@
     <history-entry file="SoapTests_testCreateIssue - 2018.09.08 at 00h 05m 40s.xml">
       <configuration name="SoapTests.testCreateIssue" configurationId="TestNG" />
     </history-entry>
+    <history-entry file="GroupModificationTests - 2018.09.09 at 17h 44m 19s.xml">
+      <configuration name="GroupModificationTests" configurationId="TestNG" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="522" y="114" width="1789" height="1372" extended-state="0" />
+    <frame x="749" y="62" width="1789" height="1372" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.35209125" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5004292" side_tool="true" weight="0.32982087" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49957082" weight="0.43205857" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49957082" visible="true" weight="0.43205857" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32996634" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.41332582" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.41332582" />
       <window_info anchor="right" id="Gradle" order="5" weight="0.3292761" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1979,7 +2011,6 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Build" order="10" sideWeight="0.499354" weight="0.37870723" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3274559" />
-      <window_info anchor="bottom" id="Messages" order="11" weight="0.35209125" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2116,31 +2147,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/biz.futureware.mantis/mantis-axis-soap-client/1.2.19/be35145de11bc2a4094c48e4cd9faba45703fe3e/mantis-axis-soap-client-1.2.19-sources.jar!/biz/futureware/mantis/rpc/soap/client/IssueData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="302" column="52" lean-forward="true" selection-start-line="302" selection-start-column="52" selection-end-line="302" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/biz.futureware.mantis/mantis-axis-soap-client/1.2.19/be35145de11bc2a4094c48e4cd9faba45703fe3e/mantis-axis-soap-client-1.2.19-sources.jar!/biz/futureware/mantis/rpc/soap/client/ObjectRef.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-138">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.testng/testng/6.14.3/bfd2538501a129a142fe8366169c48b91609dc0b/testng-6.14.3-sources.jar!/org/testng/Assert.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="1032" column="28" lean-forward="true" selection-start-line="1032" selection-start-column="28" selection-end-line="1032" selection-end-column="28" />
-          <folding>
-            <element signature="e#34342#34343#0" expanded="true" />
-            <element signature="e#34388#34389#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../mantis-tests/src/test/java/ru/stqa/pft/mantis/appmanager/MailHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
@@ -2298,13 +2304,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/tests/GroupModificationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/tests/HbConnectionTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -2365,13 +2364,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="13" selection-start-line="13" selection-end-line="13" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -2506,10 +2498,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/addressbook-web-tests.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/local.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/../sandbox/src/test/java/ru/belozerova/lesson2/PointTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="861">
-          <caret line="42" column="48" selection-start-line="42" selection-start-column="48" selection-end-line="42" selection-end-column="48" />
+        <state relative-caret-position="252">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="688">
+          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ru/belozerova/addressbook/tests/GroupModificationTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/testng-groups.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="83" selection-start-line="6" selection-start-column="83" selection-end-line="6" selection-end-column="83" />
         </state>
       </provider>
     </entry>
