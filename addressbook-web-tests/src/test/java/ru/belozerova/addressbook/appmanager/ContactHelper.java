@@ -140,6 +140,14 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
+    public void create(ContactData contacts, boolean creation) {
+        initContactCreation();
+        fillContactForm(contacts, creation);
+        submitContactCreation();
+        contactCache = null;
+        returnToHomePage();
+    }
+
     public void modify(ContactData contact) {
        InitContactModificationById(contact.getId());
        fillContactForm(contact);

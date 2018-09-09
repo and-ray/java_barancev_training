@@ -35,19 +35,7 @@ public class HbConnectionTest {
             StandardServiceRegistryBuilder.destroy( registry );
         }
     }
-/*
-    @Test
-    public void testHbConnection(){
-        EntityManager entityManager = sessionFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        List<GroupData> result = entityManager.createQuery( "from GroupData", GroupData.class ).getResultList();
-        for ( GroupData group : result ) {
-            System.out.println( group );
-        }
-        entityManager.getTransaction().commit();
-        entityManager.close();
-    }
-*/
+
     @Test
     public void testHbConnection(){
         Session session = sessionFactory.openSession();

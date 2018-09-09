@@ -8,6 +8,8 @@ import ru.belozerova.addressbook.model.Contacts;
 import ru.belozerova.addressbook.model.GroupData;
 import ru.belozerova.addressbook.model.Groups;
 
+import java.util.Objects;
+
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -25,39 +27,46 @@ public class AddContactToGroupTests extends TestBase {
                     .withLastName("Beta")
                     .withAddress("Earth")
                     .withMobilePhone("+71234567890")
-                    .withEmail("alfa@beta.com"));
+                    .withEmail("alfa@beta.com"), false);
         }
-    }
+        }
 
     @Test
     public void testAddContactToGroup() {
-    /*    Contacts beforeContacts = app.db().contacts();
-        Groups beforeGroups = app.db().groups();
+        Contacts beforeContacts = app.db().contacts();
         ContactData contactBeforeAdding = beforeContacts.iterator().next();
+        System.out.println("contactBeforeAdding" + contactBeforeAdding);
         Groups initialGroupList = contactBeforeAdding.getGroups();
-       if (initialGroupList.equals(beforeGroups)){
-        app.group().create(new GroupData().withName("testNew").withHeader("hiiiii").withFooter("foooo"));}
+        System.out.println("initialGroupList = " + initialGroupList);
 
-  //      GroupData groupForAddingContact =// beforeGroups.iterator().next();//новая группа строго!
-    //    app.gotoHomePage();
-
-        int id = contactBeforeAdding.getId();
-        app.contact().selectContactById(id);
-        app.group().selectGroupToIncludeContact(groupForAddingContact);
-        app.contact().addContactToGroup();
-
-        Contacts afterContacts = app.db().contacts();
-        ContactData contactToCompare = new ContactData();
-        for(ContactData contact: afterContacts){
-            //System.out.println("contact.getId() = " + contact.getId());
-            //System.out.println("addingToGroupContact.getId() = " + addingToGroupContact.getId());
-            if (contact.getId() == id){
-                contactToCompare = contact;
-                break;
+        Groups beforeGroups = app.db().groups();
+        GroupData groupToAdd = null;
+        System.out.println("beforeGroups.size() = " + beforeGroups.size());
+        for (int i=0; i<beforeGroups.size(); i++) {
+            GroupData currentGroup = beforeGroups.iterator().next();
+            System.out.println(i + "-й проход, группа " + currentGroup);
+            if (!initialGroupList.contains(currentGroup)) {
+                System.out.println("в списке" + initialGroupList + "нет группы " + currentGroup);
+                groupToAdd = currentGroup;
+                break; //если группы нет у этого контакта - ок, профит, иначе ищем группу, которой в нем нет
             }
         }
-        System.out.println("список групп контакта из БД" + contactToCompare.getGroups());
-        System.out.println("список групп исходного контакта + добавляемая группа" + addingToGroupContact.inGroup(groupForAddingContact).getGroups());
-        assertThat(contactToCompare.getGroups(), equalTo(addingToGroupContact.inGroup(groupForAddingContact).getGroups()));
-    */}
+        //если дошли до конца цикла, проштудировав все группы, и все они есть связаны с контактом, то groupToAdd =нулл:
+        if (Objects.equals(groupToAdd, null)){
+            System.out.println("если сюда ушли, то все имеющиеся группы у контакта есть");
+            app.goTo().GroupPage();
+            app.group().create(new GroupData().withName("testSpecialGroup").withHeader("hiiiii").withFooter("foooo"));
+            groupToAdd = app.db().getGroupWithMaxIdFromDB();
+        }
+        System.out.println("groupToAdd" + groupToAdd);
+        int id = contactBeforeAdding.getId();
+        app.contact().selectContactById(id);
+        app.group().selectGroupToIncludeContact(groupToAdd);
+        app.contact().addContactToGroup();
+
+        ContactData contactAfterAdding = app.db().contactFromDB(id);
+        System.out.println("contactAfterAdding" + contactAfterAdding);
+        System.out.println("contactAfterAdding.getGroups() = " + contactAfterAdding.getGroups());
+        assertThat(initialGroupList.add(groupToAdd), equalTo(contactAfterAdding.getGroups()));
+    }
 }
