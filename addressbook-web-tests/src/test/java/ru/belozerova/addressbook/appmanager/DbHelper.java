@@ -77,15 +77,15 @@ public class DbHelper {
         int maxId = 0;
         GroupData groupWithLastId = null;
         for (GroupData currentGroup: groupList){
-            System.out.println("currentGroup = " + currentGroup);
+            //System.out.println("currentGroup = " + currentGroup);
             if (currentGroup.getId() > maxId){
-                System.out.println("currentGroup.getId() = " + currentGroup.getId());
+               // System.out.println("currentGroup.getId() = " + currentGroup.getId());
                 maxId = currentGroup.getId();
                 groupWithLastId = currentGroup;
             }
         }
-        System.out.println("maxId: "+ maxId);
-        System.out.println("groupWithLastId = " + groupWithLastId);
+        //System.out.println("maxId: "+ maxId);
+        //System.out.println("groupWithLastId = " + groupWithLastId);
         return groupWithLastId;
     }
 }

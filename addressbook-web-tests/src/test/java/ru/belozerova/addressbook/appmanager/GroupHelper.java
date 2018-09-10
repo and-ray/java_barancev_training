@@ -99,7 +99,7 @@ public class GroupHelper extends HelperBase{
     }
 
     public void selectGroupToIncludeContact(GroupData group) {
-        System.out.println("chosen group.getName() = " + group.getName());
+        //System.out.println("chosen group.getName() = " + group.getName());
         new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(group.getName());
     }
     public void selectGroupToCheckIncludedContacts(GroupData group) {
