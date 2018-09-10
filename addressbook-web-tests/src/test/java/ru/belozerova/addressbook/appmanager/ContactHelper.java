@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.belozerova.addressbook.model.ContactData;
 import ru.belozerova.addressbook.model.Contacts;
+import ru.belozerova.addressbook.model.GroupData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,9 @@ public class ContactHelper extends HelperBase {
         if (creation) {
             if (contactData.getGroups().size() > 0) {
                 Assert.assertTrue(contactData.getGroups().size()==1);
-             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+                String ourGroup = contactData.getGroups().iterator().next().getName();
+                System.out.println("ourGroup" + ourGroup);
+             new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(ourGroup);
             }
         }
     }

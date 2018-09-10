@@ -76,9 +76,7 @@ public class DbHelper {
         Groups groupList = groups();
         int maxId = 0;
         GroupData groupWithLastId = null;
-        for (int i = 0; i < groupList.size(); i++){
-            System.out.println("i = " + i);
-            GroupData currentGroup = groupList.iterator().next();
+        for (GroupData currentGroup: groupList){
             System.out.println("currentGroup = " + currentGroup);
             if (currentGroup.getId() > maxId){
                 System.out.println("currentGroup.getId() = " + currentGroup.getId());
